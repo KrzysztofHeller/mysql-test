@@ -3,8 +3,6 @@ services:
     image: mysql:8.0
     container_name: mysql-test
     restart: unless-stopped
-    ports:
-      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: devdb
@@ -13,6 +11,13 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
       - ./init:/docker-entrypoint-initdb.d
+
+  ssh:
+    build: ./ssh
+    container_name: ssh-tunnel
+    restart: unless-stopped
+    ports:
+      - "2222:2222"
 
 volumes:
   mysql-data:
