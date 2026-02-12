@@ -1,4 +1,4 @@
-USE testdb;
+USE devdb;
 
 CREATE TABLE testowa (
     id INT AUTO_INCREMENT PRIMARY KEY,
