@@ -13,19 +13,11 @@ services:
       - ./init:/docker-entrypoint-initdb.d
 
   ssh:
-    image: lscr.io/linuxserver/openssh-server:latest
+    build: ./ssh
     container_name: ssh-tunnel
     restart: unless-stopped
     ports:
       - "2222:2222"
-    environment:
-      PUID: 1000
-      PGID: 1000
-      USER_NAME: tunnel
-      USER_PASSWORD: tunnel
-      PASSWORD_ACCESS: "true"
-    volumes:
-      - ./ssh/enable-tcp-forwarding.sh:/custom-cont-init.d/enable-tcp-forwarding.sh:ro
 
 volumes:
   mysql-data:
