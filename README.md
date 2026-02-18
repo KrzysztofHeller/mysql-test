@@ -22,7 +22,15 @@ docker compose up -d
 
 ## Połączenie z bazą danych
 
-### 1. Otwórz tunel SSH (terminal 1)
+### Bezpośrednio (bez proxy)
+
+```bash
+mysql -h 127.0.0.1 -P 3307 -u root -prootpass devdb
+```
+
+### Przez tunel SSH
+
+#### 1. Otwórz tunel SSH (terminal 1)
 
 ```bash
 ssh -L 3306:mysql:3306 tunnel@192.168.10.226 -p 2222
@@ -30,7 +38,7 @@ ssh -L 3306:mysql:3306 tunnel@192.168.10.226 -p 2222
 
 Hasło: `tunnel`
 
-### 2. Połącz się przez tunel (terminal 2)
+#### 2. Połącz się przez tunel (terminal 2)
 
 ```bash
 mysql -h 127.0.0.1 -u root -prootpass devdb
@@ -41,7 +49,7 @@ mysql -h 127.0.0.1 -u root -prootpass devdb
 | Parametr      | Wartość      |
 |---------------|-------------|
 | Host MySQL    | `mysql` (wewnątrz sieci Docker) |
-| Port MySQL    | `3306`      |
+| Port MySQL    | `3306` (wewnętrzny) / `3307` (bezpośredni) |
 | Baza danych   | `devdb`     |
 | Root hasło    | `rootpass`  |
 | Użytkownik    | `testuser`  |

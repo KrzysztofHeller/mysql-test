@@ -3,11 +3,14 @@ services:
     image: mysql:8.0
     container_name: mysql-test
     restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: devdb
       MYSQL_USER: testuser
       MYSQL_PASSWORD: testpass
+    ports:
+      - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
       - ./init:/docker-entrypoint-initdb.d
