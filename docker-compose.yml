@@ -8,6 +8,8 @@ services:
       MYSQL_DATABASE: devdb
       MYSQL_USER: testuser
       MYSQL_PASSWORD: testpass
+    ports:
+      - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
       - ./init:/docker-entrypoint-initdb.d
