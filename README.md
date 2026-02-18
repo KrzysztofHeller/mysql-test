@@ -49,7 +49,7 @@ mysql -h 127.0.0.1 -u root -prootpass devdb
 | Parametr      | Wartość      |
 |---------------|-------------|
 | Host MySQL    | `mysql` (wewnątrz sieci Docker) |
-| Port MySQL    | `3306`      |
+| Port MySQL    | `3306` (wewnętrzny) / `3307` (bezpośredni) |
 | Baza danych   | `devdb`     |
 | Root hasło    | `rootpass`  |
 | Użytkownik    | `testuser`  |
