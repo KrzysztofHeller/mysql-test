@@ -33,7 +33,7 @@ mysql -h 127.0.0.1 -P 3307 -u root -prootpass devdb
 #### 1. Otwórz tunel SSH (terminal 1)
 
 ```bash
-ssh -L 3306:mysql:3306 tunnel@192.168.10.226 -p 2222
+ssh -L 3306:mysql:3306 tunnel@192.168.10.226 -p 22022
 ```
 
 Hasło: `tunnel`
@@ -56,7 +56,7 @@ mysql -h 127.0.0.1 -u root -prootpass devdb
 | Hasło         | `testpass`  |
 | SSH user      | `tunnel`    |
 | SSH hasło     | `tunnel`    |
-| SSH port      | `2222`      |
+| SSH port      | `22022`     |
 
 ## Inicjalizacja bazy
 
